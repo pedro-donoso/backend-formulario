@@ -20,11 +20,19 @@ nest new backend
 * Elimino app.controller.ts y app.service.ts
 * Elimino archivo eslint.config.mjs
 
-#### 5. Creo controller
+#### 5. Creo module
 
 ```
 nest generate module form
 ```
+
+#### 6. Creo controller
+
+```
+nest generate controller form
+```
+
+#### 7. Configuro Controller
 
 ```
 import { Controller, Post, Body } from '@nestjs/common';
