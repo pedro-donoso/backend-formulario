@@ -50,6 +50,26 @@ DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/DB_NAME?schema=public"
 * Reemplazo por el PASSWORD de tu cuenta PostgreSQL
 * Reemplazo por el nombre de la Base de Datos creada (formulario)
 
+#### 9. Agrego modelo Usuario en schema.prisma
+
+```
+model User {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+}
+```
+
+#### 10. Genero y Migro la Base de Datos
+
+```
+npx prisma migrate dev --name init
+```
+
+
+
+
+
 
 
 
