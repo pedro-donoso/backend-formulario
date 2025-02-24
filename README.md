@@ -1,4 +1,4 @@
-## backend formulario
+### Configuraciones Previas
 
 #### 1. Creo carpeta formulario en escritorio
 
@@ -20,7 +20,9 @@ nest new backend
 * Elimino app.controller.ts y app.service.ts
 * Elimino archivo eslint.config.mjs
 
-#### 5. Instalo Prisma
+---
+
+#### 5. Instalación de Prisma
 
 ```
 npm install @prisma/client
@@ -32,6 +34,24 @@ npm install prisma --save-dev
 ```
 npx prisma init
 ```
+
+#### 7. Creo base de datos PostgreSQL
+
+* Ingreso con usuario y contraseña a la aplicación pgAdmin
+* Clic derecho Databases -> Create Database (formulario)
+
+#### 8. Creo conexión a Base de Datos formulario
+
+```
+DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/DB_NAME?schema=public"
+```
+
+* Reemplaza por el USER de tu cuenta PostgreSQL
+* Reemplazo por el PASSWORD de tu cuenta PostgreSQL
+* Reemplazo por el nombre de la Base de Datos creada (formulario)
+
+
+
 
 
 
