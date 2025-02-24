@@ -20,6 +20,22 @@ nest new backend
 * Elimino app.controller.ts y app.service.ts
 * Elimino archivo eslint.config.mjs
 
+#### 5. Instalo Prisma
+
+```
+npm install @prisma/client
+npm install prisma --save-dev
+```
+
+#### 6. Inicializo Prisma
+
+```
+npx prisma init
+```
+
+
+
+
 #### 5. Creo module
 
 ```
