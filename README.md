@@ -84,42 +84,34 @@ export class FormService {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-#### 5. Creo module
-
-```
-nest generate module form
-```
-
-#### 6. Creo controller
-
-```
-nest generate controller form
-```
-
-#### 7. Configuro Controller
+#### 12. Inyecto Servicio en Controlador
 
 ```
 import { Controller, Post, Body } from '@nestjs/common';
+import { FormService } from './form.service';
 
 @Controller('form')
 export class FormController {
+  constructor(private readonly formService: FormService) {}
+
   @Post()
-  handleFormSubmission(@Body() formData: any) {
-    console.log('Datos recibidos:', formData);
-    // Aquí puedes procesar los datos, guardarlos en una base de datos, etc.
-    return { message: 'Datos recibidos correctamente' };
+  async handleFormSubmission(@Body() formData: { name: string; email: string }) {
+    const user = await this.formService.createUser (formData);
+    return { message: 'Datos guardados correctamente', user };
   }
 }
 ```
 
-5. Habilitar CORS en main.
+#### 13. Habilitar CORS en main.
+
+```
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableCors();
+  await app.listen(3000);
+}
+bootstrap();
+```
